@@ -2,6 +2,7 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 var app=express();
+var port=process.env.PORT || 8000;
 hbs.registerPartials(__dirname +'/views/partial');
 app.set('view engine','hbs');
 app.use(express.static(__dirname+'/public'));
@@ -48,6 +49,6 @@ app.get('/bad',(req,res) =>{
    res.send({Error:'Page not found'}); 
 });
 
-app.listen(8000,()=>{
-    console.log("server started on port 8000");
+app.listen(port,()=>{
+    console.log(`server started on port ${port}`);
 });
